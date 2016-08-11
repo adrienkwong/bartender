@@ -79,10 +79,30 @@ def chooseIngred():
         list.append(random.choice(ingredients['sweet'])) 
     if askQuestions.answers['fruity'] == True:
         list.append(random.choice(ingredients['fruity'])) 
-    print(list)  
+    
+    adj = ['Happy','Crazy','Amazing']
+    noun = ['Girl','Island','Tea']
+    print("Here is your" + " " + random.choice(adj) + " " + random.choice(noun) + ",which is made of " + str(list))  
 
 if __name__ == '__main__':
-   askQuestions()
-   chooseIngred()
+    askName = input("What's your name?")
+    print("Nice to meet you "+askName+"! Tell me your preference!")
+
+    def anotherDrink():
+        askQuestions()
+        chooseIngred()
+        another = input("Do you want another drink?")
+        if another == "yes":
+           askQuestions()
+           chooseIngred()
+           anotherDrink()
+        elif another == "y":
+           askQuestions()
+           chooseIngred()
+           anotherDrink()
+        else:
+           print('Ok. Pay now!')
+       
+    anotherDrink()
    
 
